@@ -11,14 +11,8 @@ const Auth = () => {
     <>
     {/*<Header />*/}
     <Switch>
-      <Route
-        path={routes.login}
-        component={Login}
-      />
-      <Route
-        path={routes.register}
-        component={Register}
-      />
+      <Route path={routes.login} component={Login}/>
+      <Route path={routes.register} component={Register}/>
     </Switch>
     </>
   )

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, BrowserRouter, Route } from 'react-router-dom';
 import Auth from './Auth/Auth';
+import Main from "./Main/Main";
 
 export const routes = {
   home: '/',
@@ -13,12 +14,8 @@ function Router () {
   return (
     <BrowserRouter>
       <Switch>
-        <Route
-          exact
-          path={routes.home}
-          component={() => <div>Hello</div> }
-        />
         <Route path={routes.auth} component={Auth} />
+        <Route component={Main} />
       </Switch>
     </BrowserRouter>
   )
