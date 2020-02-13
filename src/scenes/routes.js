@@ -6,7 +6,7 @@ export const routes = {
   home: '/',
   auth: '/auth',
   login: '/auth/login',
-  register: '/auth/Register',
+  register: '/auth/register',
 };
 
 function Router () {

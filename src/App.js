@@ -4,7 +4,7 @@ import Router from './scenes/routes'
 
 function App () {
   return (
-    <main>
+    <main className={s.app}>
       <Router />
     </main>
   );

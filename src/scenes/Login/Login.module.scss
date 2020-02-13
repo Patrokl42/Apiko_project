@@ -1,4 +1,4 @@
-.register_wrapper {
+.login_wrapper {
   display: flex;
   font-family: 'Helvetica', sans-serif, Arial;
   background-color: #F2F2F2;
@@ -25,7 +25,7 @@
   display: flex;
   flex-direction: column;
   text-align: left;
-  margin-bottom: 14px;
+  margin-top: 14px;
 }
 
 .label {
@@ -75,4 +75,12 @@
   cursor: pointer;
   background: transparent;
   border: none;
+}
+
+.recover_password {
+  font-size: 14px;
+  color: #8C8C8C;
+  text-align: right;
+  cursor: pointer;
+  margin-bottom: 16px;
 }
