@@ -1,4 +1,44 @@
-.container {
+.header_container {
   display: flex;
-  height: 166px;
+  width: 100%;
+  background-color: #F2F2F2;
+}
+
+.header_inner {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin: auto;
+  max-width: 1184px;
+  padding-top: 18px;
+}
+
+.navigation_button__sell {
+  background-color: #349A89;
+  border-radius: 4px;
+  margin-right: 33px;
+  border: none;
+  font-size: 14px;
+  line-height: 31px;
+  padding: 0 50px;
+  color: #fff;
+}
+
+.navigation_button__login {
+  border: none;
+  background-color: #F2F2F2;
+  color: #2B2B2B;
+  font-size: 14px;
+  line-height: 40px;
+  margin-right: 40px;
+}
+
+.navigation_button__heart_icon {
+  background-color: #F2F2F2;
+  border: none;
+
+  img {
+    line-height: 0;
+    padding-top: 5px;
+  }
 }

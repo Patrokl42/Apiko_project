@@ -1,12 +1,18 @@
 import React from 'react';
-import s from './Register.module.scss';
-
-import eye from './components/eye.svg';
 import RegisterForm from "./components/RegisterForm";
+import { useStore } from '../../stores/createStore'
+import { useHistory } from 'react-router'
+import { routes } from '../routes'
 
 const Register = () => {
-  const onSubmit = () => {
-    console.log(123);
+  const store = useStore();
+  const history = useHistory();
+
+  const onSubmit = async ({ email, password, fullName }) => {
+    // await store.auth.login.run({ email, password });
+    await store.auth.registerFlow.run({ email, password, fullName });
+
+    history.push(routes.home);
   };
 
   return (

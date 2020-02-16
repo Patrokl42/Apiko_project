@@ -1,19 +1,32 @@
 import React from 'react';
-
+import { useStore } from '../../stores/createStore'
 import LoginForm from "./components/LoginForm";
+import { observer } from 'mobx-react';
+import { useHistory } from 'react-router'
+import { routes } from '../routes'
 
 const Login = () => {
-  const onSubmit = () => {
-    console.log(123);
+  const store = useStore();
+  const history = useHistory();
+
+  const onSubmit = async ({ email, password }) => {
+    // await store.auth.login.run({ email, password });
+    await store.auth.loginFlow.run({ email, password });
+
+    history.push(routes.home);
   };
 
   return (
     <main>
       <div>
-        <LoginForm onSubmit={onSubmit}/>
+        {store.auth.loginFlow.isLoading ? (
+          <div>Loading ...</div>
+        ):(
+          <LoginForm onSubmit={onSubmit}/>
+        )}
       </div>
     </main>
   )
 };
 
-export default Login;
+export default observer(Login);
