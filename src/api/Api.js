@@ -7,7 +7,14 @@ export const Auth = {
 
   setToken(token) {
      this._token = token;
-     window.localStorage('__token', token);
+     window.localStorage.setItem('___token', token);
+     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  },
+
+  logout() {
+     this._token = null;
+     window.localStorage.removeItem('___token');
+     axios.defaults.headers.common.Authorization = undefined;
   },
 
   isLoggedIn() {
@@ -28,4 +35,28 @@ export const Auth = {
       fullName
     })
   },
+};
+
+export const Account = {
+  getUser() {
+    return axios.get('/api/account');
+  },
+}
+
+export const Products = {
+  fetchLatest() {
+    return axios.get('/api/products/latest');
+  },
+  getProductById(id) {
+    return axios.get(`/api/products/${id}`);
+  },
+  byUserId(id) {
+    return axios.get(`/api/users/${id}/products`);
+  }
+}
+
+export const Users = {
+  getById(id) {
+    return axios.get(`/api/users/${id}`);
+  }
 };

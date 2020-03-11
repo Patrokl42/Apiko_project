@@ -1,0 +1,32 @@
+.product_Cart {
+  display: flex;
+  flex-direction: column;
+}
+
+.product_image {
+  max-width: 202px;
+  max-height: 148px;
+  padding: 2px;
+  border-radius: 4px 4px 0px 0px;
+  margin: auto;
+}
+
+.product_name {
+  color: #373738;
+  font-size: 15px;
+  text-decoration: none;
+  padding-bottom: 7px;
+  display: flex;
+  flex-direction: column;
+}
+
+.product_price {
+  color: #101010;
+  font-family: 'Helvetica', sans-serif, Arial;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.product_info {
+  padding: 6px 12px;
+}

@@ -10,7 +10,6 @@ const Login = () => {
   const history = useHistory();
 
   const onSubmit = async ({ email, password }) => {
-    // await store.auth.login.run({ email, password });
     await store.auth.loginFlow.run({ email, password });
 
     history.push(routes.home);

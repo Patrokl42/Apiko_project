@@ -1,37 +1,40 @@
-import React from 'react';
-import s from './Header.module.scss';
-import { useHistory } from 'react-router-dom';
-import { routes } from '../../scenes/routes';
-import logo from './Logofull.svg';
-import IconHeart from './heart.svg';
+import React from 'react'
+import s from './Header.module.scss'
+import { NavLink, useHistory } from 'react-router-dom'
+import { routes } from '../../scenes/routes'
+import logo from '../../assets/img/Logo.svg'
+import IconHeart from '../../assets/img/heart.svg'
+import { observer } from 'mobx-react'
+import { useStore } from '../../stores/createStore'
+import HeaderLogged from './HeaderLogged/HeaderLogged'
+import HeaderAuth from './HeaderAuth/HeaderAuth'
 
-const Header = () => {
-  const history = useHistory();
-
-  const navigateToLogin = () => {
-    console.log(history)
-    history.push(routes.login);
-  }
-
+const UserInfo = observer(() => {
+  const store = useStore()
 
   return (
-    <header className={s.header_container}>
-      <div className={s.header_inner}>
-        <img src={logo} alt={'Logo'} />
-        <div>
-          <button type='button' className={s.navigation_button__sell} onClick={navigateToLogin}>
-            SELL
-          </button>
-          <button type='button' className={s.navigation_button__login} onClick={navigateToLogin}>
-            LOGIN
-          </button>
-          <button type='button' className={s.navigation_button__heart_icon} onClick={navigateToLogin}>
-            <img src={IconHeart} alt={'heart'} />
-          </button>
-        </div>
-      </div>
-    </header>
+    <div>
+      {store.viewer.user.fullName}{' '}
+      <button type='button' onClick={store.auth.logout}>
+        Logout
+      </button>
+    </div>
   )
+})
+
+const Header = () => {
+  const history = useHistory()
+  const store = useStore()
+
+  const navigateToLogin = () => {
+    history.push(routes.login)
+  }
+
+  return !store.auth.isLoggedIn
+    ?
+    <HeaderAuth navigateToLogin={navigateToLogin}/>
+    :
+    <HeaderLogged/>
 }
 
-export default Header;
+export default observer(Header)

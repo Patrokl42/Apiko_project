@@ -1,0 +1,19 @@
+.products_list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 855px;
+  margin: auto;
+  margin-top: 17px;
+}
+
+.products_list__item{
+  list-style-type: none;
+  flex: 1;
+  width: 25%;
+  margin-right: 6px;
+  box-shadow: 0px 4px 14px rgba(121, 121, 121, 0.0527344);
+  border-radius: 4px;
+  border: 1px solid #E4E4E4;
+  background: #FFFFFF;
+}

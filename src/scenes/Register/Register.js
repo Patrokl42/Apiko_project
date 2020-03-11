@@ -9,7 +9,6 @@ const Register = () => {
   const history = useHistory();
 
   const onSubmit = async ({ email, password, fullName }) => {
-    // await store.auth.login.run({ email, password });
     await store.auth.registerFlow.run({ email, password, fullName });
 
     history.push(routes.home);
